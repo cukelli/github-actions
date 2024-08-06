@@ -46,7 +46,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -B package --file C:\Users\Jovan G\Desktop\github-actions\demo\demo\Dockerfile
+      run: mvn -B package --file demo\demo\Dockerfile
 
     - name: Build and push Docker image
       uses: mr-smithers-excellent/docker-build-push@v4
