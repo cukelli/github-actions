@@ -51,4 +51,3 @@ jobs:
         tag: latest
         dockerfile: demo/demo/Dockerfile  # Ovo treba da bude relativna putanja
         registry: docker.io
-=
