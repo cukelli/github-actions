@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI with Maven and Docker
 
 on:
   push:
@@ -41,10 +41,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file demo/demo/pom.xml
-    - name: Build and Push Docker Image
+    - name: Build and push Docker image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-           image: cukelli/demo-app
-           registry: docker.io
-           username: ${{ secrets.DOCKER_USERNAME }}
-           password: ${{ secrets.DOCKER_PASSWORD }} 
+        image: docker.io/your-docker-username/demo-app
+        tags: latest
+        dockerfile: demo/demo/Dockerfile  # Adjust this path if necessary
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
